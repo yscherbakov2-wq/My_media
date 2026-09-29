@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Преподаватель Китайского Языка | Авторская методика HSK & Бизнес</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Noto Serif SC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vermilion: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                            900: '#7f1d1d',
+                        },
+                        amberGold: {
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        terracotta: '#c85a32',
+                        mistDark: '#121016',
+                        paperBg: '#fcf8f3',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serifSC: ['"Noto Serif SC"', 'serif'],
+                    },
+                    boxShadow: {
+                        'glow-red': '0 0 35px -5px rgba(220, 38, 38, 0.4)',
+                        'glow-gold': '0 0 35px -5px rgba(245, 158, 11, 0.35)',
+                        'deep-depth': '0 20px 50px -10px rgba(0, 0, 0, 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom atmospheric animations & scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #18151e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #991b1b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dc2626;
+        }
+
+        /* Glassmorphism backdrop cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .glass-card-dark {
+            background: rgba(26, 20, 28, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+
+        /* Subtle sway animation for lantern */
+        @keyframes lanternSway {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+        .animate-lantern {
+            transform-origin: top center;
+            animation: lanternSway 5s ease-in-out infinite;
+        }
+
+        /* Floating atmospheric leaves animation */
+        @keyframes floatPetal {
+            0% {
+                transform: translateY(-10px) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            20% { opacity: 0.8; }
+            100% {
+                transform: translateY(100vh) translateX(120px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        .petal {
+            position: absolute;
+            background: radial-gradient(circle, #e63946 0%, #b91c1c 100%);
+            border-radius: 80% 0 80% 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Chinese Calligraphy Scroll Effect */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+        }
+
+        .gradient-text-gold {
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-text-red {
+            background: linear-gradient(135deg, #ef4444 0%, #991b1b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sun-glow {
+            background: radial-gradient(circle, rgba(251,191,36,0.5) 0%, rgba(239,68,68,0.25) 45%, rgba(255,255,255,0) 70%);
+        }
+    </style>
+</head>
+<body class="bg-paperBg text-gray-800 font-sans selection:bg-vermilion-600 selection:text-white overflow-x-hidden">
+
+    <div id="petal-container" class="fixed inset-0 pointer-events-none z-20 overflow-hidden"></div>
+
+    <!-- ========================================== -->
+    <!-- БЛОК 1: Главный Блок и Меню Навигации -->
+    <!-- ========================================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="glass-card rounded-2xl px-6 py-3 flex items-center justify-between shadow-lg border border-amberGold-300/30">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-vermilion-700 to-vermilion-900 flex items-center justify-center text-amberGold-400 shadow-md font-serifSC font-bold text-xl border border-amberGold-400/40 group-hover:scale-105 transition-transform">
+                        学
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serifSC font-bold text-lg leading-tight text-gray-900 tracking-wide">
+                            Анна Чжан <span class="text-xs text-vermilion-700 font-sans font-normal border border-vermilion-600/30 rounded-full px-2 py-0.5 ml-1">HSK 6</span>
+                        </span>
+                        <span class="text-xs text-gray-500 font-medium">Китайский язык с гарантией результата</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-gray-700">
+                    <a href="#about" class="hover:text-vermilion-600 transition-colors">Обо мне</a>
+                    <a href="#services" class="hover:text-vermilion-600 transition-colors">Тарифы</a>
+                    <a href="#quiz-section" class="hover:text-vermilion-600 transition-colors">Узнать уровень</a>
+                    <a href="#reviews" class="hover:text-vermilion-600 transition-colors">Отзывы</a>
+                </nav>
+
+                <!-- Action Button & Mobile Menu Toggle -->
+                <div class="flex items-center space-x-3">
+                    <button onclick="openBookingModal('Бесплатный Пробный Урок')" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-gradient-to-r from-vermilion-700 via-vermilion-600 to-amberGold-600 text-white text-sm font-bold shadow-md hover:shadow-glow-red hover:scale-[1.02] active:scale-95 transition-all">
+                        <i class="fa-solid fa-calendar-check mr-2"></i> Пробный урок
+                    </button>
+
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-vermilion-600 text-2xl focus:outline-none p-1">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden max-w-7xl mx-auto px-4 mt-2">
+            <div class="glass-card rounded-2xl p-6 shadow-xl flex flex-col space-y-4 font-medium text-gray-800">
+                <a href="#about" onclick="toggleMobileMenu()" class="hover:text-vermilion-600 py-1 border-b border-gray-100">Обо мне</a>
+                <a href="#services" onclick="toggleMobileMenu()" class="hover:text-vermilion-600 py-1 border-b border-gray-100">Тарифы</a>
+                <a href="#quiz-section" onclick="toggleMobileMenu()" class="hover:text-vermilion-600 py-1 border-b border-gray-100">Узнать уровень</a>
+                <a href="#reviews" onclick="toggleMobileMenu()" class="hover:text-vermilion-600 py-1 border-b border-gray-100">Отзывы</a>
+                <button onclick="toggleMobileMenu(); openBookingModal('Бесплатный Пробный Урок')" class="w-full py-3 rounded-xl bg-gradient-to-r from-vermilion-700 to-amberGold-600 text-white font-bold text-center shadow-md">
+                    Записаться на пробный урок
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#fbf2e9] via-[#f7e3d2] to-paperBg">
+        <!-- Background Atmospheric Art -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <!-- Rising Sun Glow -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full sun-glow opacity-80 blur-2xl"></div>
+            
+            <!-- Mountain Silhouette Layers (SVG) -->
+            <svg class="absolute bottom-0 left-0 right-0 w-full opacity-20 text-vermilion-900" viewBox="0 0 1440 320" fill="currentColor">
+                <path d="M0,192L60,202.7C120,213,240,235,360,213.3C480,192,600,128,720,128C840,128,960,192,1080,208C1200,224,1320,192,1380,176L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+            </svg>
+            <svg class="absolute bottom-0 left-0 right-0 w-full opacity-10 text-amberGold-600" viewBox="0 0 1440 320" fill="currentColor">
+                <path d="M0,96L80,112C160,128,320,160,480,154.7C640,149,800,107,960,106.7C1120,107,1280,149,1360,170.7L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+            </svg>
+
+            <!-- Lantern Art Accent -->
+            <div class="absolute top-20 right-6 sm:right-20 animate-lantern z-10 hidden sm:block">
+                <div class="w-1 h-20 bg-amberGold-600 mx-auto"></div>
+                <div class="w-16 h-20 bg-gradient-to-b from-vermilion-600 to-vermilion-800 rounded-2xl shadow-glow-red border border-amberGold-400 flex flex-col items-center justify-between py-2 text-amberGold-300">
+                    <span class="text-xs">福</span>
+                    <div class="w-10 h-0.5 bg-amberGold-400"></div>
+                    <span class="text-xs">春</span>
+                </div>
+                <div class="w-8 h-4 bg-amberGold-500 mx-auto rounded-b-md"></div>
+                <div class="w-0.5 h-12 bg-amberGold-400 mx-auto"></div>
+            </div>
+
+            <!-- Chinese Traditional Scroll Accent (Left) -->
+            <div class="absolute top-28 left-4 lg:left-12 hidden lg:flex flex-col items-center">
+                <div class="w-10 py-8 bg-gradient-to-b from-vermilion-800 to-vermilion-900 rounded-lg shadow-2xl border-2 border-amberGold-400 text-amberGold-300 font-serifSC text-xl vertical-text tracking-widest font-bold items-center justify-center">
+                    学而时习之不亦说乎
+                </div>
+                <div class="w-4 h-16 bg-gradient-to-b from-amberGold-400 to-amberGold-600 mx-auto rounded-b-full shadow-md"></div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-white/50 border border-amberGold-400/40 px-3.5 py-1.5 rounded-full text-vermilion-800 text-xs font-semibold backdrop-blur-sm shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-vermilion-600 animate-pulse"></span>
+                        <span>Набор на новый учебный сезон открыт</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 font-serifSC leading-tight">
+                        Заговорите на китайском <span class="gradient-text-red">уверенно и без страха</span> тонов
+                    </h1>
+
+                    <p class="text-gray-700 text-sm sm:text-base lg:text-lg max-w-2xl leading-relaxed font-medium">
+                        Авторская нейро-методика подготовки к HSK 1–6, обучению в университетах Китая и ведению бизнеса с фабриками Поднебесной.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <button onclick="openBookingModal('Пробный урок')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-vermilion-700 via-vermilion-600 to-amberGold-600 text-white font-extrabold text-sm shadow-glow-red hover:scale-105 active:scale-95 transition-all uppercase tracking-wider">
+                            Бесплатный урок
+                        </button>
+                        <a href="#about" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-white border border-gray-200 text-gray-800 font-bold text-sm hover:bg-gray-50 transition-all text-center shadow-sm">
+                            Моя методика
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Hero: Teacher Portrait Placeholder -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Glowing aura -->
+                        <div class="absolute -inset-4 rounded-full bg-gradient-to-tr from-vermilion-300 to-amberGold-300 opacity-60 blur-2xl"></div>
+                        
+                        <!-- Portrait Card Container -->
+                        <div class="relative bg-white/80 rounded-[2.5rem] border border-white p-3 shadow-2xl overflow-hidden backdrop-blur-md">
+                            
+                            <!-- Teacher Portrait Image -->
+                            <div class="relative w-full h-[400px] rounded-3xl overflow-hidden bg-gray-100 group">
+                                <!-- ЗАМЕНИТЕ ССЫЛКУ В src НА ПУТЬ К ВАШЕМУ ФОТО -->
+                                <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=800&q=80" alt="Анна Чжан" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                
+                                <!-- Floating Name Badge -->
+                                <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-white/50">
+                                    <h3 class="text-xl font-extrabold text-gray-900 font-serifSC">Анна Чжан</h3>
+                                    <p class="text-xs text-gray-600 mt-1">Ваш наставник в мире китайского языка</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- БЛОК 2: Обо мне (Фоновое изображение + 2 рамки) -->
+    <!-- ========================================== -->
+    <!-- 
+        ВНИМАНИЕ! 
+        Чтобы поставить вашу картинку с Великой китайской стеной, чашкой чая и фонариком,
+        замените URL ниже в атрибуте style="background-image: url('...');" на путь к вашему файлу.
+        Например: background-image: url('images/my-bg.jpg');
+    -->
+    <section id="about" class="relative py-24 bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&fit=crop&w=1920&q=80');">
+        
+        <!-- Затемнение фона для идеальной читаемости текста поверх картинки -->
+        <div class="absolute inset-0 bg-gray-900/65 backdrop-blur-[2px]"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+            
+            <div class="text-center mb-16">
+                <span class="text-xs font-extrabold text-amberGold-400 tracking-widest uppercase bg-black/40 px-4 py-1.5 rounded-full border border-amberGold-400/30 backdrop-blur-md">
+                    Преподаватель и Подход
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-4 font-serifSC drop-shadow-lg">
+                    Погружение в культуру и результат
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-vermilion-600 to-amberGold-500 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <!-- Два блока на переднем плане -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+                
+                <!-- БЛОК 1: Обо мне -->
+                <div class="bg-black/40 backdrop-blur-md border border-amberGold-400/40 p-8 sm:p-10 rounded-3xl shadow-2xl hover:border-amberGold-400/80 transition-colors group">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-vermilion-700 to-vermilion-900 flex items-center justify-center text-amberGold-300 text-2xl shadow-glow-red">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white font-serifSC">Обо мне</h3>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 text-amberGold-400"><i class="fa-solid fa-earth-asia"></i></div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">8+ лет в Китае</h4>
+                                <p class="text-sm text-gray-300 mt-1">Жизнь, учеба и работа в Поднебесной. Передаю не просто книжный язык, а живую современную речь и особенности делового этикета.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 text-amberGold-400"><i class="fa-solid fa-award"></i></div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">Уровень HSK 6 & Диплом BLCU</h4>
+                                <p class="text-sm text-gray-300 mt-1">Выпускница Пекинского университета языка и культуры. Подтвержденный высший уровень владения языком.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 text-amberGold-400"><i class="fa-solid fa-users"></i></div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">500+ Выпускников</h4>
+                                <p class="text-sm text-gray-300 mt-1">Мои ученики успешно сдают экзамены, поступают на гранты в ВУЗы Китая и ведут переговоры с фабриками без переводчиков.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- БЛОК 2: Моя методика -->
+                <div class="bg-black/40 backdrop-blur-md border border-amberGold-400/40 p-8 sm:p-10 rounded-3xl shadow-2xl hover:border-amberGold-400/80 transition-colors group">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amberGold-600 to-amberGold-800 flex items-center justify-center text-white text-2xl shadow-glow-gold">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white font-serifSC">Моя методика</h3>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 text-vermilion-500"><i class="fa-solid fa-pen-nib"></i></div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">Мнемотехника иероглифов</h4>
+                                <p class="text-sm text-gray-300 mt-1">Забудьте о скучной зубрежке. Мы изучаем черты и ключи через визуальные образы. Вы начнете видеть логику иероглифов и легко их запоминать.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 text-vermilion-500"><i class="fa-solid fa-microphone-lines"></i></div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">Биомеханика тонов</h4>
+                                <p class="text-sm text-gray-300 mt-1">Уникальная система постановки 4-х тонов через артикуляцию и музыкальные ритмы. Китайцы будут понимать вас с первого слова.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 text-vermilion-500"><i class="fa-solid fa-chart-pie"></i></div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">Принцип 80/20 в лексике</h4>
+                                <p class="text-sm text-gray-300 mt-1">Изучаем 20% самых частотных иероглифов, которые покрывают 80% повседневного и бизнес-общения. Экономим ваше время и силы.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ТАРИФЫ -->
+    <section id="services" class="py-20 bg-paperBg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-extrabold text-vermilion-700 tracking-widest uppercase bg-vermilion-100 px-3 py-1 rounded-full border border-vermilion-200">
+                    Форматы обучения
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-3 font-serifSC">
+                    Выберите удобный формат занятий
+                </h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-vermilion-600 to-amberGold-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                
+                <div class="glass-card p-8 rounded-3xl border border-gray-200 shadow-md flex flex-col justify-between hover:shadow-xl transition-all relative">
+                    <div>
+                        <div class="text-xs font-bold text-gray-500 uppercase tracking-wider">Групповой формат</div>
+                        <h3 class="text-2xl font-bold text-gray-900 font-serifSC mt-1">Мини-группы</h3>
+                        <p class="text-xs text-gray-600 mt-2">Идеально для практики разговорной речи и мотивации.</p>
+                        
+                        <div class="my-6">
+                            <span class="text-3xl font-extrabold text-gray-900 font-serifSC">1 200 ₽</span>
+                            <span class="text-xs text-gray-500"> / урок</span>
+                        </div>
+                    </div>
+                    <button onclick="openBookingModal('Тариф: Мини-группы')" class="w-full py-3.5 rounded-xl border-2 border-vermilion-700 text-vermilion-700 font-bold hover:bg-vermilion-700 hover:text-white transition-all text-sm">
+                        Записаться
+                    </button>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-2 border-amberGold-400 shadow-glow-gold flex flex-col justify-between hover:shadow-2xl transition-all relative bg-gradient-to-b from-white via-amberGold-50 to-white">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-vermilion-700 to-amberGold-600 text-white text-xs font-extrabold px-4 py-1 rounded-full shadow-md uppercase tracking-wide whitespace-nowrap">
+                        🔥 Популярный выбор
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-vermilion-700 uppercase tracking-wider mt-2">Индивидуально</div>
+                        <h3 class="text-2xl font-bold text-gray-900 font-serifSC mt-1">Персонально</h3>
+                        <p class="text-xs text-gray-600 mt-2">100% внимания, программа подстраивается под вас.</p>
+                        
+                        <div class="my-6">
+                            <span class="text-3xl font-extrabold text-vermilion-700 font-serifSC">2 300 ₽</span>
+                            <span class="text-xs text-gray-500"> / урок</span>
+                        </div>
+                    </div>
+                    <button onclick="openBookingModal('Тариф: Индивидуальный')" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-vermilion-700 to-amberGold-600 text-white font-bold shadow-lg hover:scale-105 transition-all text-sm">
+                        Выбрать
+                    </button>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border border-gray-200 shadow-md flex flex-col justify-between hover:shadow-xl transition-all relative">
+                    <div>
+                        <div class="text-xs font-bold text-gray-500 uppercase tracking-wider">Для бизнеса</div>
+                        <h3 class="text-2xl font-bold text-gray-900 font-serifSC mt-1">Бизнес & ВЭД</h3>
+                        <p class="text-xs text-gray-600 mt-2">Переговоры, контракты и работа с фабриками Китая.</p>
+                        
+                        <div class="my-6">
+                            <span class="text-3xl font-extrabold text-gray-900 font-serifSC">3 500 ₽</span>
+                            <span class="text-xs text-gray-500"> / урок</span>
+                        </div>
+                    </div>
+                    <button onclick="openBookingModal('Тариф: Бизнес')" class="w-full py-3.5 rounded-xl border-2 border-gray-800 text-gray-800 font-bold hover:bg-gray-800 hover:text-white transition-all text-sm">
+                        Оставить заявку
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- БЛОК 3: Узнать уровень (Интерактивный Квиз) -->
+    <!-- ========================================== -->
+    <section id="quiz-section" class="py-20 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card-dark bg-mistDark rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden border-0">
+                <!-- Фон и свечения -->
+                <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-vermilion-700 blur-[80px] opacity-20 pointer-events-none"></div>
+                <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 rounded-full bg-amberGold-500 blur-[80px] opacity-20 pointer-events-none"></div>
+                
+                <div class="relative z-10 text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-xs font-extrabold text-amberGold-400 tracking-widest uppercase px-3 py-1 rounded-full border border-amberGold-400/30">
+                        Интерактивный тест
+                    </span>
+                    <h2 class="text-3xl font-extrabold text-white mt-4 font-serifSC">Определите свой уровень</h2>
+                    <p class="text-gray-400 text-sm mt-3">Ответьте на 3 простых вопроса, чтобы я могла подобрать для вас оптимальную программу и формат обучения.</p>
+                </div>
+
+                <!-- Контейнер квиза -->
+                <div id="quiz-container" class="max-w-xl mx-auto bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 relative z-10 min-h-[300px] flex flex-col justify-center">
+                    
+                    <!-- Прогресс бар -->
+                    <div id="progress-container" class="w-full bg-gray-700 h-1.5 rounded-full mb-8">
+                        <div id="quiz-progress" class="bg-gradient-to-r from-amberGold-500 to-vermilion-500 h-1.5 rounded-full transition-all duration-500" style="width: 33%"></div>
+                    </div>
+
+                    <!-- Вопрос 1 -->
+                    <div id="q1" class="quiz-step block">
+                        <h3 class="text-xl font-bold text-white mb-6">1. Сколько китайских иероглифов вы знаете (примерно)?</h3>
+                        <div class="space-y-3">
+                            <button onclick="nextQ('q1', 'q2', 66)" class="w-full text-left px-6 py-4 rounded-xl border border-white/20 hover:border-amberGold-400 hover:bg-white/10 text-gray-200 transition-all font-medium">Менее 50 (начинаю с нуля)</button>
+                            <button onclick="nextQ('q1', 'q2', 66)" class="w-full text-left px-6 py-4 rounded-xl border border-white/20 hover:border-amberGold-400 hover:bg-white/10 text-gray-200 transition-all font-medium">Около 150-300 (HSK 1-2)</button>
+                            <button onclick="nextQ('q1', 'q2', 66)" class="w-full text-left px-6 py-4 rounded-xl border border-white/20 hover:border-amberGold-400 hover:bg-white/10 text-gray-200 transition-all font-medium">Более 600 (HSK 3 и выше)</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Вопрос 2 -->
+                    <div id="q2" class="quiz-step hidden">
+                        <h3 class="text-xl font-bold text-white mb-6">2. Какая ваша главная цель изучения языка?</h3>
+                        <div class="space-y-3">
+                            <button onclick="nextQ('q2', 'q3', 100)" class="w-full text-left px-6 py-4 rounded-xl border border-white/20 hover:border-amberGold-400 hover:bg-white/10 text-gray-200 transition-all font-medium">Для себя, хобби и путешествий</button>
+                            <button onclick="nextQ('q2', 'q3', 100)" class="w-full text-left px-6 py-4 rounded-xl border border-white/20 hover:border-amberGold-400 hover:bg-white/10 text-gray-200 transition-all font-medium">Учеба в Китае (Поступление, Гранты)</button>
+                            <button onclick="nextQ('q2', 'q3', 100)" class="w-full text-left px-6 py-4 rounded-xl border border-white/20 hover:border-amberGold-400 hover:bg-white/10 text-gray-200 transition-all font-medium">Бизнес, работа, закупки на фабриках</button>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 3 -->
+                    <div id="q3" class="quiz-step hidden">
+                        <h3 class="text-xl font-bold text-white mb-6">3. Сколько времени вы готовы уделять занятиям?</h3>
+                        <div class="space-y-3">
+                            <button onclick="showResult()" class="w-full text-left px-6 py-4 rounded-xl border border-white/20 hover:border-amberGold-400 hover:bg-white/10 text-gray-200 transition-all font-medium">1-2 часа в неделю (комфортный темп)</button>
+                            <button onclick="showResult()" class="w-full text-left px-6 py-4 rounded-xl border border-white/20 hover:border-amberGold-400 hover:bg-white/10 text-gray-200 transition-all font-medium">3-5 часов в неделю (стандарт)</button>
+                            <button onclick="showResult()" class="w-full text-left px-6 py-4 rounded-xl border border-white/20 hover:border-amberGold-400 hover:bg-white/10 text-gray-200 transition-all font-medium">Каждый день (интенсив/погружение)</button>
+                        </div>
+                    </div>
+
+                    <!-- Финал квиза -->
+                    <div id="quiz-result" class="quiz-step hidden text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-vermilion-500 to-amberGold-500 rounded-full mx-auto flex items-center justify-center text-white text-3xl mb-4 shadow-glow-gold">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2 font-serifSC">Тест завершен!</h3>
+                        <p class="text-gray-300 text-sm mb-6 leading-relaxed">Спасибо за ответы. Оставьте заявку, и я пришлю вам индивидуальный план развития и подборку бесплатных материалов для старта.</p>
+                        
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                            <button onclick="openBookingModal('Анализ уровня после теста')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-vermilion-700 to-amberGold-600 text-white font-bold shadow-md hover:scale-105 transition-all text-sm uppercase tracking-wide">
+                                Получить план обучения
+                            </button>
+                            <button onclick="resetQuiz()" class="w-full sm:w-auto px-6 py-4 rounded-xl border border-white/20 hover:border-amberGold-400 hover:bg-white/10 text-gray-300 hover:text-white transition-all text-sm font-semibold flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-rotate-right"></i> Пройти заново
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ОТЗЫВЫ -->
+    <section id="reviews" class="py-20 bg-gradient-to-b from-paperBg via-[#f7e9dc] to-paperBg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 font-serifSC">Истории успеха моих учеников</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-vermilion-600 to-amberGold-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-2xl shadow-md border border-gray-200 flex flex-col justify-between">
+                    <p class="text-sm text-gray-700 italic leading-relaxed">«До Анны занималась с двумя преподавателями и бросала. Анна за 2 месяца «поставила» мне слух и произношение!»</p>
+                    <div class="mt-4 pt-4 border-t border-gray-200/60 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-gray-500 font-bold">Е</div>
+                        <div class="font-bold text-xs">Екатерина С. <span class="block text-gray-500 font-normal">Сдала HSK 4</span></div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl shadow-md border border-gray-200 flex flex-col justify-between">
+                    <p class="text-sm text-gray-700 italic leading-relaxed">«Нужен был язык для переговоров с поставщиками. За полгода стал общаться без переводчика!»</p>
+                    <div class="mt-4 pt-4 border-t border-gray-200/60 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-gray-500 font-bold">М</div>
+                        <div class="font-bold text-xs">Михаил В. <span class="block text-gray-500 font-normal">Предприниматель</span></div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl shadow-md border border-gray-200 flex flex-col justify-between">
+                    <p class="text-sm text-gray-700 italic leading-relaxed">«Самая крутая фишка — интерактивная система запоминания иероглифов. Вы понимаете историю символа!»</p>
+                    <div class="mt-4 pt-4 border-t border-gray-200/60 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-gray-500 font-bold">А</div>
+                        <div class="font-bold text-xs">Алина М. <span class="block text-gray-500 font-normal">Маркетолог</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-mistDark py-10 text-gray-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <span class="text-white font-bold text-sm block mb-2">Анна Чжан • Chinese Language School</span>
+            <p>© 2026 Все права защищены. Услуги репетиторства и подготовки к HSK.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL & TOAST -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="bg-white p-8 rounded-3xl max-w-md w-full relative shadow-2xl">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900 text-xl font-bold p-1">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-center mb-6">
+                <h3 class="text-xl font-bold text-gray-900 font-serifSC" id="modal-title">Запись на пробный урок</h3>
+                <p class="text-xs text-gray-500 mt-1">Оставьте контакты для связи</p>
+            </div>
+            <form onsubmit="handleModalFormSubmit(event)" class="space-y-4">
+                <input type="text" required placeholder="Ваше имя" class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-vermilion-600">
+                <input type="text" required placeholder="Телефон или Telegram" class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-vermilion-600">
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-vermilion-700 to-amberGold-600 text-white font-bold text-sm shadow-md hover:scale-[1.02] transition-all">
+                    Подтвердить запись
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="success-toast" class="fixed top-20 right-4 z-50 hidden bg-emerald-800 text-white px-6 py-4 rounded-2xl shadow-2xl border border-emerald-400 flex items-center space-x-3">
+        <i class="fa-solid fa-circle-check text-2xl text-emerald-300"></i>
+        <div>
+            <div class="font-bold text-sm">Успешно!</div>
+            <div class="text-xs text-emerald-200">Мы свяжемся с вами в ближайшее время.</div>
+        </div>
+    </div>
+
+    <script>
+        function createPetals() {
+            const container = document.getElementById('petal-container');
+            if (!container) return;
+            for (let i = 0; i < 12; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                const size = Math.random() * 8 + 6;
+                petal.style.width = `${size}px`;
+                petal.style.height = `${size * 1.5}px`;
+                petal.style.left = `${Math.random() * 100}vw`;
+                petal.style.animation = `floatPetal ${Math.random() * 8 + 7}s linear infinite`;
+                petal.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(petal);
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        function openBookingModal(title) {
+            const modal = document.getElementById('booking-modal');
+            const titleElem = document.getElementById('modal-title');
+            if (titleElem && title) titleElem.innerText = `Запись: ${title}`;
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function showSuccessToast() {
+            const toast = document.getElementById('success-toast');
+            if (!toast) return;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 4500);
+        }
+
+        function handleModalFormSubmit(e) {
+            e.preventDefault();
+            closeBookingModal();
+            showSuccessToast();
+        }
+
+        // Логика квиза
+        function nextQ(currentId, nextId, progress) {
+            document.getElementById(currentId).classList.add('hidden');
+            document.getElementById(nextId).classList.remove('hidden');
+            document.getElementById('quiz-progress').style.width = progress + '%';
+        }
+
+        function showResult() {
+            document.getElementById('q3').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('progress-container').classList.add('hidden'); // Скрываем полоску в конце
+        }
+
+        function resetQuiz() {
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('q1').classList.remove('hidden');
+            document.getElementById('q2').classList.add('hidden');
+            document.getElementById('q3').classList.add('hidden');
+            document.getElementById('progress-container').classList.remove('hidden');
+            document.getElementById('quiz-progress').style.width = '33%';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            createPetals();
+            
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('navbar');
+                if (navbar) {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('py-2', 'bg-white/90');
+                    } else {
+                        navbar.classList.remove('py-2', 'bg-white/90');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
